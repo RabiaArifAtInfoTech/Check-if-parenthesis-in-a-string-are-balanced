@@ -1,0 +1,36 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+bool isBalanced(string str)
+{
+	bool flag = false;
+	vector<char> vec1;
+	vector<char> vec2;
+
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str[i] == '(')
+			vec1.push_back(str[i]);
+		else if (str[i] == ')')
+			vec2.push_back(str[i]);
+	}
+	if (vec1.size() == vec2.size())
+		flag = true;
+
+	return flag;
+}
+
+
+int main()
+{
+	string str = "((3 + 4) * 5 - (6 + 7) + (8 - 9)) / 10";
+
+	if (isBalanced(str))
+		cout << "the parenthesis in the str are balanced";
+	else
+		cout << "the parenthesis in the str are NOT balanced";
+
+	cout << "\n\n\n";
+	return 0;
+}
